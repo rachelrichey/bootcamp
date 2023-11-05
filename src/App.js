@@ -1,6 +1,7 @@
 import React from 'react';
 import CardEditor from './CardEditor';
 import CardViewer from './CardViewer';
+import HomePage from './HomePage';
 
 import {Routes, Route} from 'react-router-dom';
 
@@ -29,7 +30,7 @@ class App extends React.Component{
   render() {
     return (
       <Routes>
-        <Route exact path="/"/>
+        <Route exact path="/" element={<HomePage />} />
         <Route exact path="/editor" element={<CardEditor 
             addCard={this.addCard} 
             cards={this.state.cards} 
