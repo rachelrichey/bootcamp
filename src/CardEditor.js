@@ -6,7 +6,14 @@ import {Link} from 'react-router-dom';
 class CardEditor extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { front: '', back: '' }
+        this.state = {
+            cards: [
+                { front: 'front1', back: 'back1'},
+                { front: 'front2', back: 'back2'},
+            ],
+            front: '',
+            back: '',
+        };
     }
 
     addCard = () => {
@@ -14,18 +21,18 @@ class CardEditor extends React.Component {
         const back = this.state.back.trim();
       
         if (front !== "" && back !== "") {
-          this.props.addCard({ front, back });
+          this.state.addCard({ front, back });
           this.setState({ front: '', back: '' });
         }
       };
 
-    deleteCard = index => this.props.deleteCard(index);
+    deleteCard = index => this.state.deleteCard(index);
 
     handleChange = event => 
         this.setState({ [event.target.name]: event.target.value });
 
     render() {
-        const cards = this.props.cards.map((card, index) => {
+        const cards = this.state.cards.map((card, index) => {
           return (
             <tr key={index}>
                 <td>{card.front}</td>
@@ -62,7 +69,7 @@ class CardEditor extends React.Component {
                 onChange={this.handleChange}
                 placeholder="Back of card" 
                 value={this.state.back} 
-                />
+                /> 
                 <button onClick={this.addCard}>Add card</button>
                 <Link to="/viewer">Go to card viewer</Link>
             </div>
