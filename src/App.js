@@ -27,6 +27,7 @@ class App extends React.Component{
     this.setState({ cards })
   };
 
+// 18 minutes in to card viewer component video, changing url doesnt redirect to a deck, blank page
   render() {
     return (
       <Routes>
@@ -36,7 +37,7 @@ class App extends React.Component{
             cards={this.state.cards} 
             deleteCard={this.deleteCard} 
           />}/>
-        <Route exact path="/viewer" element={<CardViewer 
+        <Route exact path="/viewer/:deckId" element={<CardViewer 
             cards={this.state.cards}
             card={this.props.cards}
           />}/>

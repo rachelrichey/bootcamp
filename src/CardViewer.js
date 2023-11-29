@@ -2,6 +2,9 @@ import React from 'react';
 import './CardViewer.css';
 
 import {Link} from 'react-router-dom';
+import {firebaseConnect, isLoaded} from 'react-redux-firebase';
+import {connect} from 'react-redux';
+import {compose} from 'redux';
 
 class CardViewer extends React.Component {
     constructor(props) {
@@ -39,12 +42,17 @@ class CardViewer extends React.Component {
       };
 
     render() {
+        if (!isLoaded(this.props.cards)){
+          return <div>Loading...</div>;
+        }
+
         const { currentCardIndex, isFrontVisible } = this.state;
         const card = this.props.cards[currentCardIndex];
 
         return (
             <div>
-                <h2>Card Viewer</h2>
+
+                <h2>{this.props.name}</h2>
                 <div className="flashcard" onClick={this.flipCard}>
                     {isFrontVisible ? <div className="front">{card.front}</div>
                      : <div className="back">{card.back}</div>}
@@ -61,4 +69,16 @@ class CardViewer extends React.Component {
     }
 }
 
-export default CardViewer;
+const mapStateToProps = state => {
+  console.log(state);
+  const deck = state.firebase.data.deck1;
+  const name = deck && deck.name;
+  const cards = deck && deck.cards;
+  return { cards: cards, name: name };
+}
+
+export default compose(
+  firebaseConnect([
+  { path: '/flashcards/deck1', storeAs: 'deck1' }]),
+  connect(mapStateToProps),
+  )(CardViewer);
