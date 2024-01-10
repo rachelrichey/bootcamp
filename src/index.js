@@ -17,13 +17,13 @@ import {
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyAC0qaud5YwkNZV7ADHcwf9rpoGH5TPqEs',
-  authDomain: 'bootcamp-ce748.firebaseapp.com',
-  databaseURL: 'https://bootcamp-ce748.firebaseio.com',
-  projectId: 'bootcamp-ce748',
-  storageBucket: 'bootcamp-ce748.appspot.com',
-  messagingSenderId: '782124421793',
-  appId: '1:782124421793:web:b26b23317989a449dad6e0',
+  apiKey: "AIzaSyACKUuyGzg-UEPjDFupD45f4OJ1urVb740",
+  authDomain: "bootcamp-c7dde.firebaseapp.com",
+  databaseURL: "https://bootcamp-c7dde-default-rtdb.firebaseio.com",
+  projectId: "bootcamp-c7dde",
+  storageBucket: "bootcamp-c7dde.appspot.com",
+  messagingSenderId: "951650343935",
+  appId: "1:951650343935:web:43011519e89b56385ee5ca"
 };
 
 firebase.initializeApp(firebaseConfig);

@@ -4,7 +4,7 @@ import { firebaseConnect, isLoaded } from 'react-redux-firebase';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
-class Homepage extends React.Component {
+class HomePage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -63,4 +63,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default compose(firebaseConnect(), connect(mapStateToProps))(Homepage);
+export default compose(firebaseConnect(), connect(mapStateToProps))(HomePage);

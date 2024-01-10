@@ -1,7 +1,7 @@
 import React from 'react';
 import CardEditor from './CardEditor';
 import CardViewer from './CardViewer';
-import HomePage from './HomePage';
+import Homepage from './Homepage';
 import PageRegister from './PageRegister';
 import PageLogin from './PageLogin';
 
@@ -42,4 +42,4 @@ const mapStateToProps = state => {
   return { auth: state.firebase.auth, profile: state.firebase.profile };
 };
 
-export default App;
+export default connect(mapStateToProps)(App);
