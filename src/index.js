@@ -27,7 +27,7 @@ const firebaseConfig = {
 };
 
 firebase.initializeApp(firebaseConfig);
-// firebase.functions().useFunctionsEmulator('http://localhost:5001');
+firebase.functions().useFunctionsEmulator('http://localhost:5001');
 
 // Add firebase to reducers
 const rootReducer = combineReducers({
