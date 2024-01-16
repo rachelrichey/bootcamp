@@ -16,7 +16,7 @@ import {
 } from 'react-redux-firebase';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
-const firebaseConfig = {
+export const firebaseConfig = {
   apiKey: "AIzaSyACKUuyGzg-UEPjDFupD45f4OJ1urVb740",
   authDomain: "bootcamp-c7dde.firebaseapp.com",
   databaseURL: "https://bootcamp-c7dde-default-rtdb.firebaseio.com",
