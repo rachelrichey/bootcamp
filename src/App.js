@@ -1,50 +1,45 @@
 import React from 'react';
 import CardEditor from './CardEditor';
 import CardViewer from './CardViewer';
-import HomePage from './HomePage';
+import Homepage from './Homepage';
+import PageRegister from './PageRegister';
+import PageLogin from './PageLogin';
 
-import {Routes, Route} from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { isLoaded } from 'react-redux-firebase';
 
-class App extends React.Component{
-  constructor(props) {
-    super(props);
-    this.state = {
-    };
+const App = props => {
+  if (!isLoaded(props.auth, props.profile)) {
+    return <div>Authentication loading...</div>;
   }
 
-  addCard = card => {
-    const cards = this.state.cards.slice().concat(card);
-    this.setState({ cards });
-  };
-
-  deleteCard = index => {
-    const cards = this.state.cards.slice();
-    cards.splice(index, 1);
-    this.setState({ cards })
-  };
-
-  render() {
-    return (
-      <Routes>
-        <Route exact path="/" element={<HomePage />} />
-        <Route exact path="/editor" element={<CardEditor 
-            addCard={this.addCard} 
-            cards={this.state.cards} 
-            deleteCard={this.deleteCard} 
-          />}/>
-        <Route exact path="/viewer/:deckId" element={<CardViewer 
-          />}/>
-        <Route path="/" element={<Home />} />
-      </Routes>
-    );
-  }
-}
-
-function Home() {
   return (
-    <div>Page not found!</div>
+    <Switch>
+      <Route exact path="/">
+        <Homepage />
+      </Route>
+      <Route exact path="/editor">
+        <CardEditor />
+      </Route>
+      <Route exact path="/viewer/:deckId">
+        <CardViewer />
+      </Route>
+      <Route exact path="/register">
+        <PageRegister />
+      </Route>
+      <Route exact path="/login">
+        <PageLogin />
+      </Route>
+      <Route>
+        <div>Page not found!</div>
+      </Route>
+    </Switch>
   );
-}
+};
 
+const mapStateToProps = state => {
+  return { auth: state.firebase.auth, profile: state.firebase.profile };
+};
 
-export default App;
+export default connect(mapStateToProps)(App);
