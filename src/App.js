@@ -1,19 +1,10 @@
 import React from 'react';
 import CardEditor from './CardEditor';
 import CardViewer from './CardViewer';
-import Homepage from './Homepage';
-import PageRegister from './PageRegister';
-import PageLogin from './PageLogin';
-
 import { Switch, Route } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { isLoaded } from 'react-redux-firebase';
+import Homepage from './HomePage';
 
-const App = props => {
-  if (!isLoaded(props.auth, props.profile)) {
-    return <div>Authentication loading...</div>;
-  }
-
+const App = () => {
   return (
     <Switch>
       <Route exact path="/">
@@ -25,12 +16,6 @@ const App = props => {
       <Route exact path="/viewer/:deckId">
         <CardViewer />
       </Route>
-      <Route exact path="/register">
-        <PageRegister />
-      </Route>
-      <Route exact path="/login">
-        <PageLogin />
-      </Route>
       <Route>
         <div>Page not found!</div>
       </Route>
@@ -38,8 +23,4 @@ const App = props => {
   );
 };
 
-const mapStateToProps = state => {
-  return { auth: state.firebase.auth, profile: state.firebase.profile };
-};
-
-export default connect(mapStateToProps)(App);
+export default App;
