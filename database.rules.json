@@ -7,7 +7,7 @@
         }
       },
       "homepage": {
-        ".read": false,
+        ".read": true,
         ".write": true
       },
       "users": {
