@@ -1,0 +1,23 @@
+body {
+    background-color: #104F55;
+    text-align: center;
+    color: #9EC5AB;
+    font-family: 'main';
+    font-size: large;
+}
+
+@font-face {
+    font-family: 'main';
+    src: url(./mainfont.ttf);
+}
+
+input {
+    background-color: #9EC5AB;
+    border: 3px solid #32746D;
+    font-family: 'main';
+    font-size: large;
+    
+}
+
+
+

@@ -1,14 +1,15 @@
-.flashcard {
+.card {
     width: 300px;
     height: 200px;
-    background-color: solid white;
-    border: 2px solid #333;
+    background-color: #9EC5AB;
+    border: 2px solid #104F55;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
     margin: 20px auto;
     user-select: none;
+    color: #104F55;
   }
 
   .progress-bar {
