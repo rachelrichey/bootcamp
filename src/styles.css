@@ -3,7 +3,15 @@ body {
     text-align: center;
     color: #9EC5AB;
     font-family: 'main';
-    font-size: large;
+    font-size: 30px;
+}
+
+h2 {
+    font-size: 50px;
+}
+
+h3 {
+    font-size: 30px;
 }
 
 @font-face {
@@ -19,5 +27,11 @@ input {
     
 }
 
-
+button {
+    background-color: #9EC5AB;
+    color: #104F55;
+    border: 3px solid #32746D;
+    font-family: 'main';
+    font-size: large;
+}
 

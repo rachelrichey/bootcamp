@@ -58,8 +58,7 @@ class CardViewer extends React.Component {
     return (
       <div>
         <h2>{this.props.name}</h2>
-        <h4>Created by {this.props.username}</h4>
-        Card {this.state.currentIndex + 1} out of {this.props.cards.length}.
+        Card {this.state.currentIndex + 1} out of {this.props.cards.length}
         <div className="card" onClick={this.flipCard}>
           {card}
         </div>
